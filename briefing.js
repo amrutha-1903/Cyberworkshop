@@ -9,8 +9,8 @@ const agentIdInput = document.getElementById("agentIdInput");
 const loginError = document.getElementById("loginError");
 const verifyBtn = document.getElementById("verifyBtn");
 // 🔒 WORKSHOP ENTRY WINDOW
-const WORKSHOP_START = new Date("2025-03-15T09:00:00");
-const WORKSHOP_END   = new Date("2025-03-15T16:00:00");
+const WORKSHOP_START = new Date("2025-12-30T23:00:00");
+const WORKSHOP_END   = new Date("2025-12-31T16:00:00");
 
 /* 🔓 unlock audio */
 document.addEventListener("click", () => {
@@ -125,3 +125,4 @@ if (now < WORKSHOP_START || now > WORKSHOP_END) {
   await wait(500);
   await typeLine(briefingTerminal, "STATUS: ACTIVE");
 });
+
