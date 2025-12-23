@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agent Briefing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="typingSound" src="assets/typing.mp3" preload="auto"></audio>
+
+<!-- LOGIN SCREEN -->
+<div class="screen active" id="loginScreen">
+  <h1>AGENT VERIFICATION</h1>
+
+  <input type="text" id="agentNameInput" placeholder="Agent Name">
+  <input type="text" id="agentIdInput" placeholder="Agent ID (AX-XXXX)">
+
+  <div id="loginError"></div>
+
+  <button id="verifyBtn">Verify & Proceed</button>
+</div>
+
+<!-- BRIEFING SCREEN -->
+<div class="screen" id="briefingScreen">
+  <pre id="briefingTerminal"></pre>
+</div>
+
+<script src="briefing.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agent Onboarding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- AUDIO -->
+  <audio id="typingSound" src="assets/typing.mp3" preload="auto"></audio>
+
+  <!-- INTRO SCREEN -->
+  <div class="screen active" id="introScreen">
+    <pre id="introTerminal"></pre>
+  </div>
+
+  <!-- FORM SCREEN -->
+  <!-- FORM SCREEN -->
+<div class="screen" id="formScreen">
+  <h1>Cyber Workshop Registration</h1>
+
+  <input type="text" id="name" placeholder="Agent Name">
+  <input type="text" id="collegeId" placeholder="College ID">
+  <input type="tel" id="phone" placeholder="Phone Number">
+  <input type="email" id="email" placeholder="Email">
+  <div id="errorBox"></div>
+
+  <button id="encryptBtn">Encrypt & Proceed</button>
+</div>
+
+
+  <!-- SCAN SCREEN -->
+  <div class="screen" id="scanScreen">
+    <pre id="scanTerminal"></pre>
+  </div>
+
+  <!-- WELCOME SCREEN -->
+  <div class="screen" id="welcomeScreen">
+  <div class="agent-box subtle-glitch">
+    <div class="agent-title">ACCESS LEVEL GRANTED</div>
+
+   <div class="agent-line">
+  <span class="agent-label">AGENT ID</span>
+  <span class="agent-sep">:</span>
+  <span id="agentId" class="agent-value"></span>
+</div>
+
+<div class="agent-line">
+  <span class="agent-label">CODENAME</span>
+  <span class="agent-sep">:</span>
+  <span id="agentCode" class="agent-value"></span>
+</div>
+
+
+    <p class="sub">Clearance accepted • Proceed to briefing</p>
+  </div>
+</div>
+<!-- BRIEFING SCREEN -->
+<div class="screen" id="briefingScreen">
+  <pre id="briefingTerminal"></pre>
+  <button id="continueBtn">Proceed</button>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
