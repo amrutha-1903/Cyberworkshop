@@ -126,3 +126,4 @@ if (now < WORKSHOP_START || now > WORKSHOP_END) {
   await typeLine(briefingTerminal, "STATUS: ACTIVE");
 });
 
+
