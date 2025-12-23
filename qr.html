@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Cyber Workshop QRs</title>
+
+  <!-- QR Library -->
   <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
   <style>
     body {
       background: black;
       color: #00ff99;
       font-family: monospace;
       text-align: center;
+      padding-top: 40px;
     }
     canvas {
-      margin: 20px;
+      display: block;
+      margin: 20px auto;
       padding: 12px;
       border: 2px solid #00ff99;
       box-shadow: 0 0 20px #00ff99;
     }
   </style>
 </head>
+
 <body>
 
 <h2>REGISTER AS AGENT</h2>
@@ -27,21 +34,23 @@
 <canvas id="entryQR"></canvas>
 
 <script>
-  new QRious({
-    element: document.getElementById("regQR"),
-    value: "https://amrutha-1903.github.io/Cyberworkshop/index.html",
-    size: 220,
-    background: "black",
-    foreground: "#00ff99"
-  });
+  window.onload = function () {
+    new QRious({
+      element: document.getElementById("regQR"),
+      value: "https://amrutha-1903.github.io/Cyberworkshop/index.html",
+      size: 220,
+      background: "black",
+      foreground: "#00ff99"
+    });
 
-  new QRious({
-    element: document.getElementById("entryQR"),
-    value: "https://amrutha-1903.github.io/Cyberworkshop/briefing.html",
-    size: 220,
-    background: "black",
-    foreground: "#00ff99"
-  });
+    new QRious({
+      element: document.getElementById("entryQR"),
+      value: "https://amrutha-1903.github.io/Cyberworkshop/briefing.html",
+      size: 220,
+      background: "black",
+      foreground: "#00ff99"
+    });
+  };
 </script>
 
 </body>
