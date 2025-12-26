@@ -353,3 +353,147 @@ input.error {
   font-size: 13px;
   text-shadow: 0 0 6px red;
 }
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", monospace;
+}
+
+/* BODY */
+body {
+  background: black;
+  color: #00ff9c;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* SCREENS */
+.screen {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TERMINAL TEXT */
+pre {
+  width: 100%;
+  max-width: 420px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* FORM SCREEN */
+#formScreen {
+  text-align: center;
+}
+
+#formScreen h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px;
+  margin: 8px 0;
+  background: black;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  font-size: 14px;
+  outline: none;
+}
+
+/* ERROR */
+#errorBox {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* BUTTONS */
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 320px;
+}
+
+button:active {
+  background: #00ff9c;
+  color: black;
+}
+
+/* AGENT BOX */
+.agent-box {
+  border: 1px solid #00ff9c;
+  padding: 20px;
+  max-width: 340px;
+  width: 100%;
+  text-align: left;
+}
+
+.agent-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.agent-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.agent-label {
+  opacity: 0.7;
+}
+
+.sub {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* GLITCH EFFECT (SUBTLE) */
+.subtle-glitch {
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* MOBILE SMALL SCREENS */
+@media (max-width: 360px) {
+  pre {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+}
+
