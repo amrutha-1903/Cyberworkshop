@@ -10,7 +10,7 @@ const loginError = document.getElementById("loginError");
 const verifyBtn = document.getElementById("verifyBtn");
 
 // 🔒 WORKSHOP ENTRY WINDOW (31 Jan 2026 – IST)
-const WORKSHOP_START = new Date("2026-01-31T09:00:00+05:30");
+const WORKSHOP_START = new Date("2026-01-30T09:00:00+05:30");
 const WORKSHOP_END   = new Date("2026-01-31T16:00:00+05:30");
 
 /* 🔓 unlock audio (browser autoplay fix) */
@@ -142,3 +142,4 @@ verifyBtn.addEventListener("click", async () => {
   await wait(500);
   await typeLine(briefingTerminal, "STATUS: ACTIVE");
 });
+
