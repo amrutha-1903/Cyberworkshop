@@ -8,11 +8,12 @@ const agentNameInput = document.getElementById("agentNameInput");
 const agentIdInput = document.getElementById("agentIdInput");
 const loginError = document.getElementById("loginError");
 const verifyBtn = document.getElementById("verifyBtn");
-// 🔒 WORKSHOP ENTRY WINDOW
-const WORKSHOP_START = new Date("2025-12-30T23:00:00");
-const WORKSHOP_END   = new Date("2025-12-31T16:00:00");
 
-/* 🔓 unlock audio */
+// 🔒 WORKSHOP ENTRY WINDOW (31 Jan 2026 – IST)
+const WORKSHOP_START = new Date("2026-01-31T09:00:00+05:30");
+const WORKSHOP_END   = new Date("2026-01-31T16:00:00+05:30");
+
+/* 🔓 unlock audio (browser autoplay fix) */
 document.addEventListener("click", () => {
   typingSound.volume = 0.4;
   typingSound.play().then(() => {
@@ -68,6 +69,7 @@ verifyBtn.addEventListener("click", async () => {
 
   loginError.innerText = "";
 
+  // 🧪 Basic validation
   if (!name || !agentId) {
     loginError.innerText = "CREDENTIALS REQUIRED";
     return;
@@ -77,32 +79,47 @@ verifyBtn.addEventListener("click", async () => {
     loginError.innerText = "INVALID AGENT ID FORMAT";
     return;
   }
+
+  // ⏰ Workshop time check
   const now = new Date();
-
-if (now < WORKSHOP_START || now > WORKSHOP_END) {
-  document.body.innerHTML = `
-    <div style="
-      background:black;
-      color:#ff4444;
-      font-family:monospace;
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      letter-spacing:2px;
-    ">
-      <div>
-        <h1>ACCESS LOCKED</h1>
-        <p>Workshop entry not active.</p>
+  if (now < WORKSHOP_START || now > WORKSHOP_END) {
+    document.body.innerHTML = `
+      <div style="
+        background:black;
+        color:#ff4444;
+        font-family:monospace;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        letter-spacing:2px;
+      ">
+        <div>
+          <h1>ACCESS LOCKED</h1>
+          <p>Workshop entry not active.</p>
+        </div>
       </div>
-    </div>
-  `;
-  throw new Error("Workshop locked");
-}
+    `;
+    return;
+  }
 
+  // 📊 COUNT VERIFIED ENTRY (GOOGLE FORM → GOOGLE SHEETS)
+  if (!sessionStorage.getItem("verifiedCounted")) {
+    fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLScILIPrFy3ZRBzqJFEA5Y5opq-exBulMXuwUWY736dTbjOZGQ/formResponse",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams({
+          "entry.869246483": agentId
+        })
+      }
+    );
+    sessionStorage.setItem("verifiedCounted", "true");
+  }
 
-  // ✅ VERIFIED (logic can be expanded later)
+  // ✅ VERIFIED → SHOW BRIEFING
   loginScreen.classList.remove("active");
   briefingScreen.classList.add("active");
 
@@ -125,5 +142,3 @@ if (now < WORKSHOP_START || now > WORKSHOP_END) {
   await wait(500);
   await typeLine(briefingTerminal, "STATUS: ACTIVE");
 });
-
-
