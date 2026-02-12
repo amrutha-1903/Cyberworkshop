@@ -17,6 +17,7 @@ const agentIdEl = document.getElementById("agentId");
 const agentCodeEl = document.getElementById("agentCode");
 
 const collegeIdInput = document.getElementById("collegeId");
+const branchInput = document.getElementById("branch");
 const phoneInput = document.getElementById("phone");
 const emailInput = document.getElementById("email");
 const errorBox = document.getElementById("errorBox");
@@ -147,6 +148,7 @@ startIntro();
 encryptBtn.addEventListener("click", async () => {
   const name = document.getElementById("name").value.trim();
   const collegeId = collegeIdInput.value.trim();
+  const branch = branchInput.value.trim();
   const phone = phoneInput.value.trim();
   const email = emailInput.value.trim();
 
@@ -178,10 +180,12 @@ encryptBtn.addEventListener("click", async () => {
   sendToSheets({
     name,
     collegeId,
+    branch,
     phone,
     email,
     agentId: agentIdEl.innerText,
     codename: agentCodeEl.innerText
   });
 });
+
 
