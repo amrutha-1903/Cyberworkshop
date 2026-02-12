@@ -110,7 +110,7 @@ function generateCodeName() {
 
 /**************** GOOGLE SHEETS (FIXED) ****************/
 function sendToSheets(payload) {
-  fetch("https://script.google.com/macros/s/AKfycbxSjub9sZwWZ3w9qPO0GbiprDjDu1Y7tDP2eugPhGy_tmi43I3DpKz2dyKrAkP11fdO/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwuo1I5DvcLOngpXtQzZZXXNdOhJ0FxGRs8FJM0XAsShkADszvgojfEz3qjXNNzQsQ9/exec", {
     method: "POST",
     mode: "no-cors",
     body: JSON.stringify(payload)
@@ -184,3 +184,4 @@ encryptBtn.addEventListener("click", async () => {
     codename: agentCodeEl.innerText
   });
 });
+
